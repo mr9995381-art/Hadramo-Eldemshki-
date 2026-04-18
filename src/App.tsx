@@ -128,8 +128,6 @@ const MENU_DATA = [
 ];
 
 export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const restaurantInfo = {
     name: "حضرموت الدمشقي",
     tagline: "أصل المندي والطعم الدمشقي الأصيل",
@@ -139,6 +137,7 @@ export default function App() {
     phones: ["0403415244", "0403358084", "01271194944"],
     fb: "https://www.facebook.com/hadrmotdemshky",
     ig: "https://www.instagram.com/hadrmoteldmishky/?hl=ar",
+    menuDriveLink: "https://drive.google.com/file/d/17GcoY8sNR8ylogzrj_Xo6mgXpLOaMOh8/view?usp=drive_link"
   };
 
   const shareApp = () => {
@@ -204,7 +203,7 @@ export default function App() {
         <div className="w-full space-y-3.5 mt-4">
           <LinkItem 
             title="📖 تصفح المنيو (قائمة الطعام)" 
-            onClick={() => setIsMenuOpen(true)}
+            href={restaurantInfo.menuDriveLink}
             isPrimary={true}
             delay={0.1}
           />
@@ -250,52 +249,6 @@ export default function App() {
           </p>
         </footer>
       </div>
-
-      {/* Menu Modal - maintaining previous logic */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-primary-natural/95 flex flex-col p-4 md:p-8 overflow-y-auto"
-          >
-           <div className="flex justify-between items-center mb-6 bg-white/5 backdrop-blur-sm p-4 rounded-2xl">
-              <h2 className="text-white text-xl font-bold">المنيو الكامل</h2>
-              <button 
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-white/10 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-8 items-center max-w-4xl mx-auto w-full">
-              {MENU_PAGES.map((page, idx) => (
-                <motion.div 
-                  key={page.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-2"
-                >
-                  <img 
-                    src={page.url} 
-                    alt={page.title} 
-                    className="w-full h-auto rounded-2xl"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="p-5 text-center">
-                    <h3 className="text-primary-natural text-lg font-bold">{page.title}</h3>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            <div className="h-20 flex-shrink-0" />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
