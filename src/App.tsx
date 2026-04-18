@@ -51,7 +51,7 @@ export default function App() {
     phones: ["0403415244", "0403358084", "01271194944"],
     fb: "https://www.facebook.com/hadrmotdemshky",
     ig: "https://www.instagram.com/hadrmoteldmishky/?hl=ar",
-    menuDriveLink: "https://drive.google.com/file/d/17GcoY8sNR8ylogzrj_Xo6mgXpLOaMOh8/view?usp=drive_link"
+    menuDriveLink: "https://drive.google.com/file/d/17GcoY8sNR8ylogzrj_Xo6mgXpLOaMOh8/view?usp=sharing"
   };
 
   const shareApp = () => {
