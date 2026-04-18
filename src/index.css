@@ -4,34 +4,60 @@
 @theme {
   --font-sans: "Almarai", "Cairo", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", serif;
-  --color-bg-natural: #F9F5F0;
-  --color-primary-natural: #4A2C2A;
-  --color-accent-natural: #C17D3C;
-  --color-text-natural: #2D1E17;
-  --color-border-natural: #E8E2D9;
+  
+  --color-bg-natural: var(--bg-natural);
+  --color-primary-natural: var(--primary-natural);
+  --color-accent-natural: var(--accent-natural);
+  --color-text-natural: var(--text-natural);
+  --color-border-natural: var(--border-natural);
+  --color-card-bg: var(--card-bg);
+}
+
+:root {
+  --bg-natural: #F9F5F0;
+  --primary-natural: #4A2C2A;
+  --accent-natural: #C17D3C;
+  --text-natural: #2D1E17;
+  --border-natural: #E8E2D9;
+  --card-bg: #FFFFFF;
+}
+
+.dark {
+  --bg-natural: #050505;
+  --primary-natural: #1a1a19;
+  --accent-natural: #C5A059;
+  --text-natural: #D1D1D1;
+  --border-natural: #1C1C1C;
+  --card-bg: #0D0D0D;
 }
 
 @layer base {
   body {
-    @apply bg-bg-natural text-text-natural overflow-x-hidden;
+    @apply bg-bg-natural text-text-natural overflow-x-hidden transition-colors duration-700;
     font-family: var(--font-sans);
     direction: rtl;
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(193, 125, 60, 0.02) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(74, 44, 42, 0.02) 0%, transparent 40%);
+      radial-gradient(circle at 20% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(245, 242, 237, 0.03) 0%, transparent 40%);
   }
 }
 
 .editorial-card {
-  @apply bg-white border border-border-natural shadow-[0_4px_20px_rgba(74,44,42,0.05)] rounded-3xl p-8;
+  @apply bg-card-bg border border-border-natural shadow-[0_8px_30px_rgba(0,0,0,0.5)] rounded-[40px] p-10 transition-all duration-500 dark:shadow-[0_8px_40px_rgba(197,160,89,0.05)];
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .btn-link {
-  @apply w-full py-5 px-6 rounded-2xl flex items-center justify-between transition-all duration-300 border border-border-natural font-bold text-base bg-white shadow-sm;
+  @apply w-full py-5 px-6 rounded-2xl flex items-center justify-between transition-all duration-300 border border-border-natural font-bold text-base bg-card-bg shadow-sm text-text-natural;
 }
 
 .btn-link:hover {
-  @apply border-primary-natural bg-primary-natural text-white shadow-md -translate-y-0.5;
+  @apply border-accent-natural bg-accent-natural text-white shadow-md -translate-y-0.5;
 }
 
 .vertical-rail {
