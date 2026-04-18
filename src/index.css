@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Almarai", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --color-bg-natural: #F9F5F0;
+  --color-primary-natural: #4A2C2A;
+  --color-accent-natural: #C17D3C;
+  --color-text-natural: #2D1E17;
+  --color-border-natural: #E8E2D9;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-natural text-text-natural overflow-x-hidden;
+    font-family: var(--font-sans);
+    direction: rtl;
+  }
+}
+
+.glass-card {
+  @apply bg-white border border-border-natural shadow-xl;
+}
+
+.btn-link {
+  @apply w-full py-4 px-6 rounded-xl flex items-center justify-between transition-all duration-200 border border-border-natural font-semibold text-base;
+}
