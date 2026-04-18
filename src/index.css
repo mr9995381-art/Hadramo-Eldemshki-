@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200;300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Almarai", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
   --color-bg-natural: #F9F5F0;
   --color-primary-natural: #4A2C2A;
   --color-accent-natural: #C17D3C;
@@ -15,13 +16,25 @@
     @apply bg-bg-natural text-text-natural overflow-x-hidden;
     font-family: var(--font-sans);
     direction: rtl;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(193, 125, 60, 0.02) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(74, 44, 42, 0.02) 0%, transparent 40%);
   }
 }
 
-.glass-card {
-  @apply bg-white border border-border-natural shadow-xl;
+.editorial-card {
+  @apply bg-white border border-border-natural shadow-[0_4px_20px_rgba(74,44,42,0.05)] rounded-3xl p-8;
 }
 
 .btn-link {
-  @apply w-full py-4 px-6 rounded-xl flex items-center justify-between transition-all duration-200 border border-border-natural font-semibold text-base;
+  @apply w-full py-5 px-6 rounded-2xl flex items-center justify-between transition-all duration-300 border border-border-natural font-bold text-base bg-white shadow-sm;
+}
+
+.btn-link:hover {
+  @apply border-primary-natural bg-primary-natural text-white shadow-md -translate-y-0.5;
+}
+
+.vertical-rail {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
