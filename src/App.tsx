@@ -45,7 +45,7 @@ export default function App() {
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
   const restaurantInfo = {
     name: "حضرموت الدمشقي",
-    tagline: "أصل المندي والطعم الدمشقي الأصيل",
+    tagline: "أصل المندي والمشوي",
     location: "طنطا - شارع البحر - بجوار صيدناوي",
     whatsapp: "201000520345",
     phones: ["0403415244", "0403358084", "01271194944"],
