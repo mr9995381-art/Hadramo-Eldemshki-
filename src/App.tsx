@@ -129,9 +129,14 @@ export default function App() {
             <div className="editorial-card relative overflow-hidden group backdrop-blur-md">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent-natural/10 dark:bg-accent-natural/20 rounded-bl-[120px] -mr-16 -mt-16 transition-transform duration-1000 group-hover:scale-125" />
               
-              <h1 className="text-4xl md:text-5xl font-bold text-primary-natural dark:text-accent-natural mb-4 tracking-tighter leading-tight drop-shadow-sm">
-                {restaurantInfo.name}
-              </h1>
+              <div className="flex flex-col items-center mb-6">
+                <div className="w-20 h-20 bg-primary-natural rounded-full flex items-center justify-center p-4 mb-4 shadow-lg border-2 border-accent-natural/30">
+                  <img src="/favicon.svg" alt="Hadramout Logo" className="w-full h-full object-contain" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-primary-natural dark:text-accent-natural mb-4 tracking-tighter leading-tight drop-shadow-sm text-center">
+                  {restaurantInfo.name}
+                </h1>
+              </div>
               <div className="w-16 h-1 w bg-accent-natural mx-auto mb-6 rounded-full" />
               <p className="text-accent-natural text-base md:text-lg font-bold tracking-[0.1em] mb-8 font-serif italic">
                 {restaurantInfo.tagline}
